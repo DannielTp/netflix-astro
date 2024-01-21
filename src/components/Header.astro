@@ -1,0 +1,22 @@
+---
+    import SearchIcons from "./icons/SearchIcon.astro";
+    import NotificationIcon from "./icons/NotificationIcon.astro";
+---
+<nav class="flex justify-between items-center h-[70px] px-10 bg-transparent text-white w-full fixed top-0 z-10">
+    <div class="flex gap-6">
+        <img src="/logo.png" alt="Logo Netflix" width="100" class="object-contain" />
+
+        <ul class="flex gap-4">
+            <li><a href="/">Home</a></li>
+            <li><a href="/series">Series</a></li>
+            <li><a href="/movies">Películas</a></li>
+        </ul>
+    </div>
+
+    <div class="flex items-center gap-6">
+        <SearchIcons width="25" height="25" />
+        <NotificationIcon width="25" height="25" />
+
+        <div class="rounded-lg bg-yellow-300 w-[35px] h-[35px] flex items-center justify-center text-red-700">D</div>
+    </div>
+</nav>

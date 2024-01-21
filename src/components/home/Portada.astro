@@ -1,0 +1,30 @@
+---
+import Top10 from '../icons/Top10.astro'
+import PlayIcon from '../icons/PlayIcon.astro'
+import InfoIcon from '../icons/InfoIcon.astro'
+---
+
+<div class="relative">
+    <video width="100%" muted autoplay class="mt-[-60px] w-full object-cover" poster="/poster.webp">
+        <source src="/trailer.mp4" type="video/mp4">
+    </video>
+
+    <div class="absolute top-60 left-16">
+        <img src="/title-poster.webp" alt="Berlín" />
+
+        <div class="flex gap-4 items-center mt-5">
+            <Top10 className="w-10" />
+            <h1 class="text-white text-3xl font-medium">N.º 3 en series hoy</h1>
+        </div>
+        <p class="max-w-[480px] text-white font-light text-lg mt-4 text-balance">En sus días de gloria, Berlín y una banda de ladrones se reúnen en París para llevar a cabo un ambicioso golpe: robar 44 millones de euros en joyas en una noche.
+
+        <div class="flex">
+            <button class="flex items-center gap-3 bg-white text-black px-8 py-4 rounded-md font-medium mt-4">
+                <PlayIcon /> Reproducir
+            </button>
+            <button class="flex items-center gap-3 bg-gray-800 bg-opacity-60 text-white px-8 py-4 rounded-md font-medium mt-4 ml-4">
+                <InfoIcon /> Más información
+            </button>
+        </div>
+    </div>
+</div>
