@@ -1,11 +1,17 @@
 ---
+import Categorias from './Categorias.astro'
 import Top10 from '../icons/Top10.astro'
 import PlayIcon from '../icons/PlayIcon.astro'
 import InfoIcon from '../icons/InfoIcon.astro'
+
+const FETCH_URL = import.meta.env.FETCH_URL;
+
+const responseCategorias = await fetch(`${FETCH_URL}/categorias/all`);
+const categorias = await responseCategorias.json();
 ---
 
 <div class="relative">
-    <video width="100%" muted autoplay class="mt-[-60px] w-full object-none max-h-[900px]" poster="/poster.webp">
+    <video width="100%" muted autoplay class="mt-[-60px] w-full object-none max-h-[960px]" poster="/poster.webp">
         <source src="/trailer.mp4" type="video/mp4">
     </video>
 
@@ -25,6 +31,12 @@ import InfoIcon from '../icons/InfoIcon.astro'
             <button class="flex items-center gap-3 bg-gray-800 bg-opacity-60 text-white px-8 py-4 rounded-md font-medium mt-4 ml-4">
                 <InfoIcon /> Más información
             </button>
+        </div>
+
+        <div class="mt-28">
+            {categorias.map((c: Categoria) => (
+                <Categorias categoria={c} />
+            ))}
         </div>
     </div>
 </div>

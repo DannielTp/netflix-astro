@@ -1,0 +1,20 @@
+---
+import Media from './Media.astro';
+
+const { categoria: { nombre } } = Astro.props;
+
+const FETCH_URL = import.meta.env.FETCH_URL;
+
+const responseMedia = await fetch(`${FETCH_URL}/media?${new URLSearchParams({ categoria: nombre })}`);
+const media = await responseMedia.json();
+---
+
+<div class={media.length == 0 ? 'hidden' : 'block'}>
+    <h2 class="text-[#e5e5e5] capitalize text-lg font-medium">{nombre}</h2>
+
+    <div class="flex gap-4 mt-2 mb-14">
+        {media.map((m: Media) => (
+            <Media media={m} />
+        ))}
+    </div>
+</div>

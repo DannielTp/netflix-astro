@@ -1,0 +1,52 @@
+---
+import { Picture } from 'astro:assets';
+import PlayIcon from '../icons/PlayIcon.astro';
+import PlusIcon from '../icons/PlusIcon.astro';
+import ThumbUpIcon from '../icons/ThumbUpIcon.astro';
+
+const { media } = Astro.props;
+---
+
+{media &&
+    <div class="rounded-md hover:w-[350px] hover:border border-black media-container cursor-pointer">
+        <Picture src={`/media/${media.imagen}`} alt={media.nombre} width={293} height={164} class="rounded-md" />
+
+        <div class="media-controller hidden px-5 py-3">
+            <div class="flex justify-between">
+                <div class="flex gap-2">
+                    <div class="w-10 h-10 bg-white rounded-full flex justify-center items-center">
+                        <PlayIcon />
+                    </div>
+
+                    <div class="w-10 h-10 border-2 border-[#ffffff80] text-white rounded-full flex justify-center items-center">
+                        <PlusIcon />
+                    </div>
+
+                    <div class="w-10 h-10 border-2 border-[#ffffff80] text-white rounded-full flex justify-center items-center">
+                        <ThumbUpIcon />
+                    </div>
+                </div>
+
+                <div class="w-10 h-10 bg-white rounded-full flex justify-center items-center">
+                    <PlayIcon />
+                </div>
+            </div>
+
+            <div class="flex justify-around">
+                <p class="text-[#ffffff80] mt-3">{media.episodios} episodios</p>
+                <p class="text-[#ffffff80] mt-3">{media.temporadas} temporada{media.temporadas > 1 && 's'}</p>
+            </div>
+        </div>
+    </div>
+}
+
+<style>
+    .media-container:hover img {
+        width: 350px;
+    }
+
+    .media-container:hover .media-controller {
+        display: block;
+        gap: 10px;
+    }
+</style>
